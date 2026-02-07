@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Modular</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button onclick="cambiarModo()" class="boton-modo">🌗 Tema</button>
+
+    <div id="pantalla-login" class="contenedor">
+        <h2>Acceso Restringido</h2>
+        <p>Introduce la contraseña:</p>
+        <input type="password" id="passwordInput" placeholder="Contraseña">
+        <button onclick="verificarPassword()">Entrar</button>
+        <p id="mensaje-error">Contraseña incorrecta</p>
+    </div>
+
+    <div id="contenido-secreto" class="contenedor oculto">
+        <h1 style="color: green;">¡Acceso Concedido!</h1>
+        <p>Esta es tu galería privada cargada desde archivos separados:</p>
+        
+        <div class="galeria">
+            <img src="https://picsum.photos/100">
+            <img src="https://picsum.photos/101">
+            <img src="https://picsum.photos/102">
+        </div>
+
+        <button onclick="cerrarSesion()" class="btn-salir">Cerrar Sesión</button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

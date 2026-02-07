@@ -1,0 +1,71 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background 0.3s;
+}
+
+.contenedor {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 300px;
+}
+
+input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover { background-color: #0056b3; }
+
+#mensaje-error {
+    color: red;
+    font-size: 0.9em;
+    display: none;
+    margin-top: 10px;
+}
+
+.oculto { display: none !important; }
+
+.galeria {
+    display: flex; 
+    gap: 10px; 
+    justify-content: center; 
+    margin-bottom: 20px;
+}
+.galeria img { border-radius: 5px; }
+.btn-salir { background-color: #dc3545; }
+.btn-salir:hover { background-color: #a71d2a; }
+
+/* Modo Oscuro */
+body.modo-oscuro { background-color: #1a1a1a; color: #f0f0f0; }
+body.modo-oscuro .contenedor {
+    background-color: #2d2d2d;
+    color: white;
+    box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+}
+.boton-modo {
+    position: absolute; top: 20px; right: 20px;
+    background: none; border: 2px solid #555; color: #555;
+    width: auto;
+}
