@@ -4,8 +4,218 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Ingeniería Electrónica</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ESTILOS VISUALES (CSS) --- */
+        
+        /* 1. Base y Fondo "Tech" */
+        :root {
+            --bg-color: #050505;
+            --text-color: #e0e0e0;
+            --accent-color: #3b82f6; /* Azul técnico moderno */
+            --accent-glow: #3b82f680;
+            --card-bg: #121212;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Outfit', sans-serif; /* Tipografía premium */
+            overflow-x: hidden;
+            
+            /* Efecto de cuadrícula técnica en el fondo */
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* 2. Navegación Flotante */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%; /* Márgenes laterales para que no se pegue al borde */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo { font-weight: 700; font-size: 1.5rem; letter-spacing: -0.5px; }
+        .punto { color: var(--accent-color); }
+
+        .enlaces a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 40px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .enlaces a:hover { color: #fff; }
+
+        /* 3. Portada (Hero) - Centrada y potente */
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        h1 {
+            font-size: 4rem; /* Texto grande */
+            line-height: 1.1;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .descripcion {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 40px;
+            max-width: 500px;
+            font-weight: 300;
+        }
+
+        .btn-primary {
+            padding: 15px 35px;
+            background: var(--text-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* 4. Proyectos - Estilo Grid Limpio */
+        .seccion { padding: 100px 10%; }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
+        }
+        
+        h2 { font-size: 2.5rem; font-weight: 500; }
+
+        .grid-proyectos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.4s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .card-imagen {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(20%); /* Filtro sutil para elegancia */
+            transition: 0.4s;
+        }
+        
+        .card:hover .card-imagen { filter: grayscale(0%); }
+
+        .card-info { padding: 25px; }
+
+        .card-info h3 { 
+            font-size: 1.4rem; 
+            margin-bottom: 10px; 
+            color: #fff;
+        }
+        
+        .card-info p { 
+            color: #888; 
+            font-size: 0.95rem; 
+            margin-bottom: 20px; 
+            font-weight: 300;
+        }
+
+        .tags span {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: #fff;
+            background: rgba(255,255,255,0.05);
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #666;
+        }
+        
+        .email-link {
+            display: block;
+            margin-top: 10px;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            .hero { padding: 0 5%; justify-content: center; text-align: center; }
+            .hero-content { margin-top: 60px; }
+            .navbar { padding: 20px 5%; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -13,60 +223,62 @@
         <div class="logo">PORTFOLIO<span class="punto">.</span></div>
         <div class="enlaces">
             <a href="#proyectos">Proyectos</a>
-            <a href="#contacto">Contacto</a>
+            <a href="#contacto">Hablemos</a>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
-            <p class="saludo">HOLA, SOY [TU NOMBRE]</p>
-            <h1>Ingeniería Electrónica <br> <span class="resaltado">& Prototipado</span></h1>
-            <p class="descripcion">Diseño sistemas embebidos y soluciones de hardware. Aquí es donde la teoría conecta con la realidad.</p>
-            <a href="#proyectos" class="btn-primary">Ver Proyectos</a>
-        </div>
-        <div class="hero-visual">
-            <div class="circuito-deco"></div>
+            <span class="badge">INGENIERO DE HARDWARE</span>
+            <h1>Ideas complejas,<br>soluciones simples.</h1>
+            <p class="descripcion">Soy [Tu Nombre]. Me especializo en diseño de PCB, Firmware y prototipado rápido. Construyo cosas que funcionan en el mundo real.</p>
+            <a href="#proyectos" class="btn-primary">Ver mis trabajos</a>
         </div>
     </header>
 
     <section id="proyectos" class="seccion">
-        <h2>Proyectos Destacados</h2>
+        <div class="section-header">
+            <h2>Proyectos Seleccionados</h2>
+            <p style="color: #666;">Hardware & Firmware</p>
+        </div>
+
         <div class="grid-proyectos">
             
             <article class="card">
-                <div class="card-imagen" style="background-image: url('https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-imagen" style="background-image: url('https://images.unsplash.com/photo-1553406830-ef2513450d76?q=80&w=1000&auto=format&fit=crop');"></div>
                 <div class="card-info">
-                    <h3>Controlador IoT</h3>
-                    <p>Sistema de domótica basado en ESP32 con dashboard en tiempo real.</p>
+                    <h3>Controlador IoT ESP32</h3>
+                    <p>Diseño completo de PCB de 4 capas para automatización industrial con dashboard en tiempo real.</p>
                     <div class="tags">
+                        <span>Altium Designer</span>
                         <span>C++</span>
-                        <span>IoT</span>
-                        <span>PCB Design</span>
+                        <span>MQTT</span>
                     </div>
                 </div>
             </article>
 
             <article class="card">
-                <div class="card-imagen" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-imagen" style="background-image: url('https://images.unsplash.com/photo-1616469829941-c7200edec809?q=80&w=1000&auto=format&fit=crop');"></div>
                 <div class="card-info">
-                    <h3>Brazo Robótico 4DOF</h3>
-                    <p>Cinemática inversa aplicada a un brazo impreso en 3D.</p>
+                    <h3>Brazo Robótico 6DOF</h3>
+                    <p>Brazo impreso en 3D con cinemática inversa calculada en un STM32.</p>
                     <div class="tags">
-                        <span>Python</span>
                         <span>Robótica</span>
-                        <span>Arduino</span>
+                        <span>Python</span>
+                        <span>Impresión 3D</span>
                     </div>
                 </div>
             </article>
 
             <article class="card">
-                <div class="card-imagen" style="background-image: url('https://images.unsplash.com/photo-1603732551681-2e91159b9dc2?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-imagen" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop');"></div>
                 <div class="card-info">
-                    <h3>Fuente Conmutada</h3>
-                    <p>Diseño de eficiencia energética Buck-Boost con protecciones activas.</p>
+                    <h3>Fuente Conmutada 500W</h3>
+                    <p>Topología Full-Bridge con eficiencia del 94%. Simulación y pruebas de estrés térmico.</p>
                     <div class="tags">
                         <span>Power Electronics</span>
-                        <span>Simulación</span>
+                        <span>LTSpice</span>
+                        <span>Hardware</span>
                     </div>
                 </div>
             </article>
@@ -75,10 +287,20 @@
     </section>
 
     <footer id="contacto">
-        <p>¿Hablamos?</p>
+        <p>¿Tienes un proyecto en mente?</p>
         <a href="mailto:tuemail@ejemplo.com" class="email-link">tuemail@ejemplo.com</a>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Smooth Scroll para que baje suave al hacer click
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
