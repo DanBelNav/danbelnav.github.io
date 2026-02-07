@@ -3,36 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Modular</title>
-    
+    <title>Portfolio | Ingeniería Electrónica</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
 
-    <button onclick="cambiarModo()" class="boton-modo">🌗 Tema</button>
-
-    <div id="pantalla-login" class="contenedor">
-        <h2>Acceso Restringido</h2>
-        <p>Introduce la contraseña:</p>
-        <input type="password" id="passwordInput" placeholder="Contraseña">
-        <button onclick="verificarPassword()">Entrar</button>
-        <p id="mensaje-error">Contraseña incorrecta</p>
-    </div>
-
-    <div id="contenido-secreto" class="contenedor oculto">
-        <h1 style="color: green;">¡Acceso Concedido!</h1>
-        <p>Esta es tu galería privada cargada desde archivos separados:</p>
-        
-        <div class="galeria">
-            <img src="https://picsum.photos/100">
-            <img src="https://picsum.photos/101">
-            <img src="https://picsum.photos/102">
+    <nav class="navbar">
+        <div class="logo">PORTFOLIO<span class="punto">.</span></div>
+        <div class="enlaces">
+            <a href="#proyectos">Proyectos</a>
+            <a href="#contacto">Contacto</a>
         </div>
+    </nav>
 
-        <button onclick="cerrarSesion()" class="btn-salir">Cerrar Sesión</button>
-    </div>
+    <header class="hero">
+        <div class="hero-content">
+            <p class="saludo">HOLA, SOY [TU NOMBRE]</p>
+            <h1>Ingeniería Electrónica <br> <span class="resaltado">& Prototipado</span></h1>
+            <p class="descripcion">Diseño sistemas embebidos y soluciones de hardware. Aquí es donde la teoría conecta con la realidad.</p>
+            <a href="#proyectos" class="btn-primary">Ver Proyectos</a>
+        </div>
+        <div class="hero-visual">
+            <div class="circuito-deco"></div>
+        </div>
+    </header>
+
+    <section id="proyectos" class="seccion">
+        <h2>Proyectos Destacados</h2>
+        <div class="grid-proyectos">
+            
+            <article class="card">
+                <div class="card-imagen" style="background-image: url('https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-info">
+                    <h3>Controlador IoT</h3>
+                    <p>Sistema de domótica basado en ESP32 con dashboard en tiempo real.</p>
+                    <div class="tags">
+                        <span>C++</span>
+                        <span>IoT</span>
+                        <span>PCB Design</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-imagen" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-info">
+                    <h3>Brazo Robótico 4DOF</h3>
+                    <p>Cinemática inversa aplicada a un brazo impreso en 3D.</p>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>Robótica</span>
+                        <span>Arduino</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-imagen" style="background-image: url('https://images.unsplash.com/photo-1603732551681-2e91159b9dc2?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-info">
+                    <h3>Fuente Conmutada</h3>
+                    <p>Diseño de eficiencia energética Buck-Boost con protecciones activas.</p>
+                    <div class="tags">
+                        <span>Power Electronics</span>
+                        <span>Simulación</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p>¿Hablamos?</p>
+        <a href="mailto:tuemail@ejemplo.com" class="email-link">tuemail@ejemplo.com</a>
+    </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>

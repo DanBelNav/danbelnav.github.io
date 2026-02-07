@@ -1,29 +1,23 @@
-function verificarPassword() {
-    const input = document.getElementById('passwordInput').value;
-    const errorMsg = document.getElementById('mensaje-error');
+// Efecto de Header: Se esconde al bajar, aparece al subir
+let ubicacionPrincipal = window.pageYOffset;
+
+window.onscroll = function() {
+    let desplazamientoActual = window.pageYOffset;
     
-    if (input === "1234") {
-        document.getElementById('pantalla-login').classList.add('oculto');
-        document.getElementById('contenido-secreto').classList.remove('oculto');
+    if (ubicacionPrincipal >= desplazamientoActual) {
+        document.querySelector(".navbar").style.top = "0";
     } else {
-        errorMsg.style.display = 'block';
+        document.querySelector(".navbar").style.top = "-100px";
     }
+    ubicacionPrincipal = desplazamientoActual;
 }
 
-function cerrarSesion() {
-    document.getElementById('passwordInput').value = '';
-    document.getElementById('mensaje-error').style.display = 'none';
-    document.getElementById('contenido-secreto').classList.add('oculto');
-    document.getElementById('pantalla-login').classList.remove('oculto');
-}
-
-function cambiarModo() {
-    document.body.classList.toggle('modo-oscuro');
-}
-
-// Detectar tecla Enter
-document.getElementById("passwordInput").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        verificarPassword();
-    }
+// Suavizado extra para los enlaces internos
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
